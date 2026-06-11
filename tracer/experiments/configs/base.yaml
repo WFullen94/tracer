@@ -1,0 +1,14 @@
+benchmark_version: v1
+suites: [workspace, travel, banking, slack]
+
+detector:
+  type: behavioral        # behavioral | provenance | ensemble
+  model: claude-sonnet-4-6
+
+evaluation:
+  held_out_suites: [travel]   # never seen during detector development (Phase 3)
+  seed: 42
+
+logging:
+  log_dir: logs/
+  save_trajectories: true
