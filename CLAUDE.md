@@ -50,10 +50,11 @@ Built on AgentDojo (the canonical multi-step agent benchmark, extended by US + U
 - [ ] `DetectionResult` dataclass: flagged (bool), confidence (float), flagged_step (int | None), reasoning (str)
 - [ ] Evaluate on AgentDojo: precision, recall, F1, utility score (does detection hurt benign tasks?)
 
-### Phase 3 — Benchmark harness
+### Phase 3 — Benchmark harness + held-out InjecAgent corpus
 - [ ] `tracer/benchmark/splits.py`: partition AgentDojo by attack family; reserve held-out families the detector is never trained/tuned on
 - [ ] `tracer/benchmark/metrics.py`: standard ASR (attack success rate) + utility score
 - [ ] `tracer/benchmark/harness.py`: end-to-end eval runner — takes a detector, returns a full metrics report
+- [ ] `tracer/injecagent/adapter.py`: load InjecAgent v1 test cases (DH + DS, base + enhanced); produce seed trajectories the detector has never seen during AgentDojo development — the true generalization test for Phase 6
 - [ ] Reproduce AgentSentry numbers as sanity check
 
 ### Phase 4 — Stricter leakage-aware metric
